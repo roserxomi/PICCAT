@@ -1,0 +1,425 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Zona Superior - Categorías */
+#categories-section {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    flex-shrink: 0;
+}
+
+.category-btn {
+    min-width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.category-btn:hover {
+    transform: scale(1.1);
+}
+
+.category-btn.active {
+    transform: scale(1.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.square-btn {
+    border-radius: 15px !important;
+    background: #34495e;
+    width: 60px;
+}
+
+.add-btn {
+    width: 60px;
+    height: 60px;
+    border: 2px dashed #7f8c8d;
+    background: transparent;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #7f8c8d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+    background: #ecf0f1;
+    color: #34495e;
+}
+
+#categories-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.category-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-edit-icon {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    background: rgba(52, 73, 94, 0.9);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 10px;
+    transition: all 0.3s ease;
+    opacity: 1;
+    z-index: 10;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.category-edit-icon:hover {
+    background: rgba(52, 73, 94, 1);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Removido hover dependency para millor compatibilitat táctil */
+
+/* Zona Central - Pictos */
+#pictos-section {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#pictos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.picto {
+    width: 170px;
+    height: 170px;
+    border: 4px solid;
+    border-radius: 15px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.picto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.picto img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.picto .picto-name {
+    position: absolute;
+    bottom: 5px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+    width: 100%;
+    padding: 0 5px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.edit-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    background: rgba(52, 73, 94, 0.8);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    opacity: 1;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.edit-icon:hover {
+    background: rgba(52, 73, 94, 1);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Removido hover dependency para millor compatibilitat táctil */
+
+.add-picto-btn {
+    width: 100%;
+    height: 60px;
+    border: 2px dashed #7f8c8d;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-picto-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.modal-content input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+#color-picker, #new-color-picker {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.color-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.color-option:hover, .color-option.selected {
+    border-color: #2c3e50;
+    transform: scale(1.1);
+}
+
+#picto-image-section {
+    margin-bottom: 15px;
+}
+
+#picto-preview {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    margin-bottom: 10px;
+    display: block;
+}
+
+#picto-image-input {
+    margin-bottom: 10px;
+}
+
+#record-audio-btn, #use-tts-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#audio-section h4, #picto-category-section h4 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+#picto-category-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#save-category-btn, #save-picto-btn, #create-category-btn {
+    background: #27ae60;
+    color: white;
+}
+
+#delete-category-btn, #delete-picto-btn {
+    background: #e74c3c;
+    color: white;
+}
+
+#cancel-category-btn, #cancel-picto-btn, #cancel-new-category-btn {
+    background: #95a5a6;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #pictos-container {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 18px;
+    }
+    
+    .picto {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .picto img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+}
+
+/* Animaciones */
+@keyframes bounce {
+    0%, 20%, 60%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    80% {
+        transform: translateY(-5px);
+    }
+}
+
+.picto:active {
+    animation: bounce 0.6s;
+}
+
+/* Estados de carga */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Scrollbars personalizados */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}

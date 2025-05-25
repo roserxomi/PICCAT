@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SAAC">
+    <meta name="theme-color" content="#667eea">
+    <meta name="msapplication-TileColor" content="#667eea">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Comunicador SAAC</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+    <div id="app">
+        <!-- Zona Superior - Categorías -->
+        <div id="categories-section">
+            <button id="all-categories-btn" class="category-btn square-btn">Tots</button>
+            <div id="categories-container"></div>
+            <button id="add-category-btn" class="add-btn">+</button>
+        </div>
+
+        <!-- Zona Central - Pictos -->
+        <div id="pictos-section">
+            <div id="pictos-container"></div>
+            <button id="add-picto-btn" class="add-picto-btn">+ Afegir Picto</button>
+        </div>
+
+        
+    </div>
+
+    <!-- Modal para editar categoría -->
+    <div id="category-modal" class="modal">
+        <div class="modal-content">
+            <h3>Editar Categoria</h3>
+            <input type="text" id="category-name-input" placeholder="Nom de la categoria">
+            <div id="color-picker">
+                <div class="color-option" data-color="#ffb3ba"></div>
+                <div class="color-option" data-color="#bae1ff"></div>
+                <div class="color-option" data-color="#bffcc6"></div>
+                <div class="color-option" data-color="#ffffba"></div>
+                <div class="color-option" data-color="#ffdfba"></div>
+                <div class="color-option" data-color="#e0bbff"></div>
+                <div class="color-option" data-color="#c7cedb"></div>
+                <div class="color-option" data-color="#ffc9e6"></div>
+                <div class="color-option" data-color="#d4f4dd"></div>
+                <div class="color-option" data-color="#f0e68c"></div>
+                <div class="color-option" data-color="#dda0dd"></div>
+                <div class="color-option" data-color="#98fb98"></div>
+            </div>
+            <div class="modal-buttons">
+                <button id="save-category-btn">Guardar</button>
+                <button id="delete-category-btn">Eliminar</button>
+                <button id="cancel-category-btn">Cancel·lar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para editar picto -->
+    <div id="picto-modal" class="modal">
+        <div class="modal-content">
+            <h3>Editar Picto</h3>
+            <input type="text" id="picto-name-input" placeholder="Nom del picto">
+            <div id="picto-image-section">
+                <img id="picto-preview" src="" alt="Preview">
+                <input type="file" id="picto-image-input" accept="image/*">
+            </div>
+            <div id="audio-section">
+                <h4>Audio:</h4>
+                <button id="record-audio-btn">Gravar Audio</button>
+                <button id="use-tts-btn">Usar Text-a-Veu</button>
+                <audio id="audio-preview" controls style="display:none;"></audio>
+            </div>
+            <div id="picto-category-section">
+                <h4>Categoria:</h4>
+                <select id="picto-category-select"></select>
+            </div>
+            <div class="modal-buttons">
+                <button id="save-picto-btn">Guardar</button>
+                <button id="delete-picto-btn">Eliminar</button>
+                <button id="cancel-picto-btn">Cancel·lar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para afegir nova categoria -->
+    <div id="new-category-modal" class="modal">
+        <div class="modal-content">
+            <h3>Nova Categoria</h3>
+            <input type="text" id="new-category-name-input" placeholder="Nom de la categoria">
+            <div id="new-color-picker">
+                <div class="color-option" data-color="#ffb3ba"></div>
+                <div class="color-option" data-color="#bae1ff"></div>
+                <div class="color-option" data-color="#bffcc6"></div>
+                <div class="color-option" data-color="#ffffba"></div>
+                <div class="color-option" data-color="#ffdfba"></div>
+                <div class="color-option" data-color="#e0bbff"></div>
+                <div class="color-option" data-color="#c7cedb"></div>
+                <div class="color-option" data-color="#ffc9e6"></div>
+                <div class="color-option" data-color="#d4f4dd"></div>
+                <div class="color-option" data-color="#f0e68c"></div>
+                <div class="color-option" data-color="#dda0dd"></div>
+                <div class="color-option" data-color="#98fb98"></div>
+            </div>
+            <div class="modal-buttons">
+                <button id="create-category-btn">Crear</button>
+                <button id="cancel-new-category-btn">Cancel·lar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

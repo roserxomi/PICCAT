@@ -1,0 +1,29 @@
+
+{
+  "name": "PICAT",
+  "short_name": "PICAT",
+  "description": "Sistema Alternativo y Aumentativo de Comunicación",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "orientation": "any",
+ "icons": [
+  {
+    "src": "https://i.postimg.cc/676wHZ89/icon512.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "any"
+  },
+  {
+    "src": "https://i.postimg.cc/676wHZ89/icon-maskable.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "maskable"
+  }
+],
+  "permissions": [
+    "microphone"
+  ],
+  "categories": ["education", "accessibility"]
+}
